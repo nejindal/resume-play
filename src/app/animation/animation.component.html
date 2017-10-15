@@ -1,0 +1,42 @@
+<div class="flipCard" [@flipCardTrigger]="cardFace">
+  <div class="back">
+      <div class="rounded" style="max-width: auto; text-align:center;" >
+          <div class="circular-btn-div">
+            <button type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-list"></i></button>
+          </div>
+          <div class="card" style=" height: 19.4em">
+              <div class="card-block">
+                <h4 class="card-title">Server Details</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+                <a href="#" class="btn btn-primary" (click)="toggleCard()">Go to Front</a>
+              </div>
+            </div>
+      </div>
+  </div>
+  <div class="front">
+      <div class="rounded" style="max-width: auto; text-align:center;" >
+          <div class="circular-btn-div">
+            <button type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-list"></i></button>
+          </div>
+      <div class="card text-center float-card" style=" height: 20em">
+        <div class="card-header">
+          <ul class="nav navbar-light nav-tabs card-header-tabs" style="background-color: #e3f2fd;">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Running Jobs</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <br/>
+          <h4 class="card-title">Title</h4>
+          <a href="#" class="btn btn-primary" (click)="toggleCard()">Know More</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>

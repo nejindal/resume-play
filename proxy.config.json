@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target":"https://id-prod.ci.corp.adobe.com:12001",
+        "secure":false,
+        "logLevel":"debug"
+    }
+}

@@ -1,0 +1,13 @@
+td:last-child{
+    border: 0;
+    background-color: white;
+}
+
+table{
+    border-block-end: 0;
+    border-inline-end: 0;
+}
+
+.display-content{
+    display: none;
+}

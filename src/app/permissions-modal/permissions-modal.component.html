@@ -1,0 +1,74 @@
+<!-- Modal -->
+<div class="modal fade" id="permissionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:lightsteelblue">
+          <h3 class="modal-title" id="exampleModalLabel" style="font-weight:bold">Manage Users</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Your Jenkins Instance
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#" (click)="showUsersAndPermissions()">https://id-prod.ci.corp.adobe.com:12001</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">https://indesign.ci.corp.adobe.com:12001</a></li>
+                </ul>
+              </div>
+              <br/>
+
+            <div class="table-responsive display-content">
+              <table class="table table-striped table-bordered">
+                  <thead>
+                      <tr>
+                        <th>Users</th>
+                        <th>Permissions</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                        <td>nejindal</td>
+                        <td>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Read</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Write</label>
+                        </td>
+                        <td><a href="#"><span class="fa fa-window-close"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>praverma</td>
+                        <td>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Read</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Write</label>
+                        </td>
+                        <td><a href="#"><span class="fa fa-window-close"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>alokumar</td>
+                        <td>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Read</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Write</label>
+                        </td>
+                        <td><a href="#"><span class="fa fa-window-close"></span></a></td>
+                    </tr>
+              </table>
+
+              <div class="col-lg-6 display-content">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon1" style="background-color:white">User to Add:</span>
+                    <input type="text" class="form-control" placeholder="Enter LDAP...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary" type="button">Add</button>
+                    </span>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,8 @@
+
+<app-header> </app-header>
+<app-register-jenkins-url></app-register-jenkins-url>
+
+<div class="container-flluid" style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items:flex-end">
+        <app-jenkins-card style="flex: 0 1 24%; padding: 1em;" *ngFor="let jenkins of jenkinsArray" [jenkinsCard]="jenkins"></app-jenkins-card>
+</div>
+
