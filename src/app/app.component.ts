@@ -21,8 +21,11 @@ export class AppComponent implements OnDestroy{
   constructor(private rdbClientService : RdbClientService){
   }
   ngOnInit(){
-    
-    this.rdbClientService.fetch("jenkins").subscribe(results => {this.jenkinsArray = results; console.log(this.jenkinsArray)}, err => console.error(err),() => console.log("Results fetched"));
+
+    console.log("onInit");
+    this.rdbClientService.fetch('jenkins_and_users')
+    .map(results => results.filter((item: Array<Object>) => item['users'].indexOf('nejindal')!=-1))
+    .subscribe(results => {this.jenkinsArray = results; console.log(this.jenkinsArray)}, err => console.error(err),() => console.log("Results fetched"));
     /*
     this.jenkinsService.getJenkinsDetails().subscribe(res => {this.jenkinsArray = res['data'], console.log(this.jenkinsArray)});
     this.subscription = this.jenkinsService.jenkinsSubject$.subscribe( data => {this.jenkinsArray.push(data); console.log(this.jenkinsArray)}, err => console.log(err));

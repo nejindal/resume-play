@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {PermissionsModalComponent} from './../permissions-modal/permissions-modal.component';
 
 @Component({
@@ -8,6 +8,7 @@ import {PermissionsModalComponent} from './../permissions-modal/permissions-moda
 })
 export class HeaderComponent implements OnInit {
 
+  @Input('jenkinsArray') private jenkinsArray : any;
   user="Neha Jindal";
   constructor() { }
 
