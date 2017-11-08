@@ -19,4 +19,8 @@ export class RdbClientService{
     fetch(collection){
         return this.hz(collection).fetch();
     }
+
+    watch(collection){
+        return this.hz(collection).watch();
+    }
 }

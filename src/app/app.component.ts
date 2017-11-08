@@ -17,14 +17,15 @@ export class AppComponent implements OnDestroy{
   title = 'app';
   subscription : Subscription;
   jenkinsArray =  [];
+  ldap = "praverma";
   
   constructor(private rdbClientService : RdbClientService){
   }
   ngOnInit(){
 
     console.log("onInit");
-    this.rdbClientService.fetch('jenkins_and_users')
-    .map(results => results.filter((item: Array<Object>) => item['users'].indexOf('nejindal')!=-1))
+    this.rdbClientService.watch('jenkins_and_users')
+    .map(results => results.filter((item: Array<Object>) => item['users'].find(x => x.ldap===this.ldap)))
     .subscribe(results => {this.jenkinsArray = results; console.log(this.jenkinsArray)}, err => console.error(err),() => console.log("Results fetched"));
     /*
     this.jenkinsService.getJenkinsDetails().subscribe(res => {this.jenkinsArray = res['data'], console.log(this.jenkinsArray)});

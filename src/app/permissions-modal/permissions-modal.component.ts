@@ -42,7 +42,7 @@ export class PermissionsModalComponent implements OnInit {
   addLDAP(){
     console.log(this.ldap);
     if(this.ldap){
-      this.jenkinsUsers.push(this.ldap);
+      this.jenkinsUsers.push({"ldap": this.ldap, "permission_read": true, "permission_write": true});
       this.ldap="";
     }else{
       this.tooltipTitle = "Please enter a valid ldap";
@@ -50,12 +50,11 @@ export class PermissionsModalComponent implements OnInit {
     }
   }
 
-  removeLDAP(user: string){
+  removeLDAP(user: any){
     console.log("Removing LDAP User " + user);
-    var index = this.jenkinsUsers.indexOf(user);
-    if(index!=-1){
-      this.jenkinsUsers.splice(index,1);
-    }
+    this.jenkinsUsers.find((x,i)=> {if(x.ldap === user.ldap){
+      this.jenkinsUsers.splice(i,1);
+    }});
   }
 
   saveChanges(){
