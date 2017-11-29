@@ -10,20 +10,20 @@ export class PipelineService {
     
    }
 
+   
    getJenkinsPipelines(jenkinsUrl : string){
     const url = jenkinsUrl + '/api/json?tree=jobs[name,url]&pretty=true';
-    console.log("Url - "+ url);
-    console.log(this.getPipelines(url,""));
+    this.pipelinesArray = [];
+    this.getPipelines(url,"");
+    return this.pipelinesArray;
   }
 
    getPipelines(url: string, pipelineName: string){
     let jenkinsItemsArray: any = [];
-    this.http.get(url)
-    .subscribe(data => {
+    this.http.get(url).subscribe(data => {
       jenkinsItemsArray = data['jobs'];
       this.getFolders(jenkinsItemsArray,pipelineName);
     });
-    return this.pipelinesArray;
   }
 
    getFolders(jenkinsItemsArray: any, pipelineName: string){

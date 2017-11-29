@@ -35,8 +35,8 @@ export class JenkinsCardComponent implements OnInit {
     this.cardFace = this.cardFace == 'front'? 'back' : 'front';
   }
 
-  getJenkinsPipelines(selectedJenkinsUrl){
-    this.pipelineService.getJenkinsPipelines(selectedJenkinsUrl);
+  getJenkinsPipelines(selectedJenkins){
+    //this.pipelineService.getJenkinsPipelines(selectedJenkinsUrl);
   }
 
 }

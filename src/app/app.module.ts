@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { RegisterJenkinsUrlComponent } from './register-jenkins-url/register-jenkins-url.component';
 
 import {JenkinsService} from './services/jenkins.service';
+import {DataService} from './services/data.service';
 import {PipelineService} from './services/pipeline.service';
 import {StepsService} from './services/steps.service';
 import {RdbClientService} from './services/rdb-client.service';
@@ -18,6 +19,10 @@ import { AnimationComponent } from './animation/animation.component';
 import { JenkinsCardComponent } from './jenkins-card/jenkins-card.component';
 import { HeaderComponent } from './header/header.component';
 import { PermissionsModalComponent } from './permissions-modal/permissions-modal.component';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { JenkinsListComponent } from './jenkins-list/jenkins-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -27,15 +32,18 @@ import { PermissionsModalComponent } from './permissions-modal/permissions-modal
     AnimationComponent,
     JenkinsCardComponent,
     HeaderComponent,
-    PermissionsModalComponent
+    PermissionsModalComponent,
+    routingComponents,
+    JenkinsListComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [JenkinsService, StepsService, RdbClientService, Horizon, PipelineService],
+  providers: [JenkinsService, StepsService, RdbClientService, Horizon, PipelineService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

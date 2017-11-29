@@ -7,9 +7,6 @@ import {PermissionsModalComponent} from './../permissions-modal/permissions-moda
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  @Input('jenkinsArray') private jenkinsArray : any;
-  user="Neha Jindal";
   constructor() { }
 
   ngOnInit() {

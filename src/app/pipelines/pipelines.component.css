@@ -1,0 +1,15 @@
+p{
+  font-size: 16px;  
+}
+
+span{
+    padding-left: 1em;
+}
+
+.list-group {
+    list-style: decimal inside;
+}
+
+.list-group-item {
+    display: list-item;
+}

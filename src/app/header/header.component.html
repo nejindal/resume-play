@@ -7,18 +7,18 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 2em; margin-left: -0.5em; color: black">Neha Jindal <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li data-toggle="modal" data-target="#permissionsModal"><a href="#">Configure</a></li>
+              <li data-toggle="modal" data-target="#permissionsModal"><a>Configure</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Manage Jenkins</a></li>
+              <li><a>Manage Jenkins</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Sign Out</a></li>
+              <li><a>Sign Out</a></li>
             </ul>
           </li>
         </ul>
-        <a class="navbar-brand navbar-right" href="#">
+        <a class="navbar-brand navbar-right">
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           </a>
     </div>
 </nav>
 
-<app-permissions-modal [jenkinsArray]="jenkinsArray"></app-permissions-modal>
+<app-permissions-modal></app-permissions-modal>

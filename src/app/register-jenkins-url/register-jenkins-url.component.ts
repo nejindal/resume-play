@@ -21,7 +21,6 @@ export class RegisterJenkinsUrlComponent implements OnInit {
   newJenkinsServer(){
     var doc = {jenkins_name: this.jenkins_name, jenkins_url: this.jenkins_url};
     this.rdbClientService.insert(this.table,doc);
-    //TODO Add new jenkins details to DB
   }
 
 }

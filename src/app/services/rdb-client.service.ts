@@ -23,4 +23,8 @@ export class RdbClientService{
     watch(collection){
         return this.hz(collection).watch();
     }
+
+    find(collection, id){
+        return this.hz(collection).find(id).watch();
+    }
 }

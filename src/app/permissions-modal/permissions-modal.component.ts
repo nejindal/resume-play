@@ -8,7 +8,8 @@ import {RdbClientService} from './../services/rdb-client.service';
 })
 export class PermissionsModalComponent implements OnInit {
 
-  @Input('jenkinsArray') private jenkinsArray : any;
+  jenkinsArray =  [];
+  user_ldap = "praverma";
   private jenkinsUsers: any;
   private selectedJenkins: any;
   selected: boolean = false;
@@ -21,6 +22,9 @@ export class PermissionsModalComponent implements OnInit {
   constructor(private rdbClientService : RdbClientService) { }
 
   ngOnInit() {
+    this.rdbClientService.watch('jenkins_and_users')
+    .map(results => results.filter((item: Array<Object>) => item['users'].find(x => x.ldap===this.user_ldap)))
+    .subscribe(results => {this.jenkinsArray = results; console.log(this.jenkinsArray)}, err => console.error(err),() => console.log("Results fetched"));
   }
 
   showUsersAndPermissions(selectedJenkins: any){
