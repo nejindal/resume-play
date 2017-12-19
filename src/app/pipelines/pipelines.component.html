@@ -3,32 +3,26 @@
     <p class="navbar-text">Jenkins URL: <a>{{selectedJenkins.jenkins_url}}</a></p>
     <form class="navbar-form navbar-right" role="search">
       <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" [(ngModel)]="searchText" name="search" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
 
 <br>
 
 <table class="table table-striped table-bordered">
-      <tr *ngFor="let pipeline of pipelinesArray; let i = index">
+      <tr *ngFor="let pipeline of pipelinesArray | filter:searchText; let i = index">
           <td>{{i+1}}</td>
-          <td><a>{{pipeline.name}}</a></td>
+          <td><a>{{pipeline.name}}</a>
+            <span class="label label-default pull-right"></span>
+        </td>
           <td>
-              <a> <span class="glyphicon glyphicon-cog pull-left"></span> </a>
-              <a> <span class="glyphicon glyphicon-play  pull-left"></span> </a>
+              <a (click)="setSelectedPipeline(pipeline)" data-toggle="modal" data-target="#configureBuildNumberModal"> <span class="glyphicon glyphicon-wrench  pull-left"></span> </a>
+              <a (click)="navigateToBuildPage(pipeline.url)"> <span class="glyphicon glyphicon-play  pull-left"></span> </a>
+              <a (click)="navigateToJenkinsConfigurePage(pipeline.url)"> <span class="glyphicon glyphicon-cog pull-left"></span> </a>
           </td>
       </tr>
 </table>
 
-<!-- Pipeline List -->
-<!--
-<ol class="list-group">
-  <li *ngFor="let pipeline of pipelinesArray" class="list-group-item"> 
-    <a> {{pipeline.name}} </a>
-    <a> <span class="glyphicon glyphicon-cog pull-right"></span> </a>
-    <a> <span class="glyphicon glyphicon-play  pull-right"></span> </a>
-  </li>
-</ol>
--->
+
+<app-build-number-modal [selectedPipeline]="selectedPipeline"></app-build-number-modal>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {RdbClientService} from './../services/rdb-client.service';
 
 @Component({

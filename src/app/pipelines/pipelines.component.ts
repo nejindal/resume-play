@@ -4,18 +4,24 @@ import { ActivatedRoute } from '@angular/router';
 import {RdbClientService} from './../services/rdb-client.service';
 import {PipelineService} from './../services/pipeline.service';
 import {DataService} from './../services/data.service';
+import {BuildNumberModalComponent} from './../build-number-modal/build-number-modal.component';
 
 @Component({
   selector: 'app-pipelines',
   templateUrl: './pipelines.component.html',
-  styleUrls: ['./pipelines.component.css']
+  styleUrls: ['./pipelines.component.css'],
 })
 export class PipelinesComponent implements OnInit {
 
   db_table: string = "jenkins_and_users";
   selectedJenkins: any = {};
-  private pipelinesArray: String[] = [];
+  private pipelinesArray: any[] = [];
   pipelines_count: any;
+  path: string[] = ['name'];
+  order: number = 1;
+  searchText: string;
+  selectedPipeline: any;
+
   constructor(private route: ActivatedRoute, private rdbClientService : RdbClientService, private pipelineService : PipelineService) { }
 
   ngOnInit() {
@@ -41,4 +47,17 @@ export class PipelinesComponent implements OnInit {
     console.log(this.pipelinesArray);
   }
 
+  navigateToJenkinsConfigurePage(url: string){
+      var http_url = url + "configure";
+      window.open(http_url, "_blank");
+  }
+
+  navigateToBuildPage(url: string){
+    var http_url = url + "build?delay=0sec";
+    window.open(http_url, "_blank");
+  }
+
+  setSelectedPipeline(selectedPipeline: any){
+      this.selectedPipeline = selectedPipeline;
+  }
 }

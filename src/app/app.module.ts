@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { RegisterJenkinsUrlComponent } from './register-jenkins-url/register-jenkins-url.component';
 
 import {JenkinsService} from './services/jenkins.service';
+import {JenkinsStepsService} from './services/jenkins-steps.service';
 import {DataService} from './services/data.service';
 import {PipelineService} from './services/pipeline.service';
 import {StepsService} from './services/steps.service';
@@ -21,6 +22,9 @@ import { HeaderComponent } from './header/header.component';
 import { PermissionsModalComponent } from './permissions-modal/permissions-modal.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { JenkinsListComponent } from './jenkins-list/jenkins-list.component';
+import { SortPipe } from './pipes/sort.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { BuildNumberModalComponent } from './build-number-modal/build-number-modal.component';
 
 
 
@@ -34,16 +38,19 @@ import { JenkinsListComponent } from './jenkins-list/jenkins-list.component';
     HeaderComponent,
     PermissionsModalComponent,
     routingComponents,
-    JenkinsListComponent
+    JenkinsListComponent,
+    SortPipe,
+    FilterPipe,
+    BuildNumberModalComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [JenkinsService, StepsService, RdbClientService, Horizon, PipelineService, DataService],
-  bootstrap: [AppComponent]
+  providers: [JenkinsService, JenkinsStepsService, StepsService, RdbClientService, Horizon, PipelineService, DataService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PipelineService {
 
-  private pipelinesArray: String[] = [];
+  private pipelinesArray: Object[] = [];
   constructor(private http: HttpClient) {
     
    }
@@ -37,9 +37,24 @@ export class PipelineService {
               pipelineNameTemp = pipelineName.concat(jenkinsItem['name']);
               jenkinsItem['name'] = pipelineNameTemp;
               this.pipelinesArray.push(jenkinsItem);
+              this.sort();
           }
         }
      }
+   }
+
+   sort(){
+      this.pipelinesArray.sort(function(a: any,b: any){
+          var strA = a['name'].toLowerCase();
+          var strB = b['name'].toLowerCase();
+          if (strA < strB){ //sort string ascending
+            return -1;
+          } 
+          if (strA > strB){
+            return 1;
+          }
+          return 0; //default return value (no sorting)
+      })
    }
 
 }
